@@ -27,12 +27,34 @@ st.markdown("""
     margin-bottom: 15px;
 }
 
+/* -------- INSTRUCTION CARD -------- */
+.instruction-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    padding: 20px 26px;
+    margin: 20px auto;
+    max-width: 800px;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    animation: fadeIn 1.2s ease-in-out;
+}
 
+.instruction-card h3 {
+    font-size: 26px;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
 
+.instruction-card ul {
+    padding-left: 20px;
+}
 
-
-
-
+.instruction-card li {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
 
 /* -------- BUTTON -------- */
 .stButton button {
@@ -107,6 +129,15 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+st.markdown("""
+<div class="instruction-card">
+    <h3>📋 Patient Instructions</h3>
+    <ul>
+        <li>Enter patient details exactly as mentioned in recent lab reports.</li>
+        <li>Ensure all test values are in correct medical units.</li>
+    </ul>
+</div>
+""", unsafe_allow_html=True)
 
 st.divider()
 
@@ -239,6 +270,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
 
 
