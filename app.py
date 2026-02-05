@@ -112,7 +112,7 @@ st.divider()
 
 # ---------------- USER INPUTS ----------------
 st.markdown("""
-<div class="card" style="text-align:center; font-size:20px; font-weight:normal;">
+<div class="card" style="text-align:center; color:white; font-size:20px; font-weight:normal;">
     Please fill in all patient details before clicking Predict.
 </div>
 """, unsafe_allow_html=True)
@@ -232,5 +232,6 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
 
