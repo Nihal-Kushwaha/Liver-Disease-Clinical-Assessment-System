@@ -13,12 +13,17 @@ st.markdown("""
 
 /* -------- TITLE -------- */
 .title {
-    text-align: center;
-    font-size: 50px;
-    font-weight: 800;
-    color: #0f172a;
-    margin-bottom: 1px;
+    text-align: center;              /* center / left / right */
+    font-size: 48px;                 /* 🔼 increase / decrease size */
+    font-weight: 800;                /* boldness */
+    color: #0f172a;                  /* title color */
+    font-family: 'Poppins', sans-serif; /* font */
+    margin-top: 10px;                /* space from top */
+    margin-bottom: 6px;              /* space below title */
+    letter-spacing: 1px;             /* spacing between letters */
+    animation: fadeIn 1s ease-in-out;
 }
+
 
 .subtitle {
     text-align: center;
@@ -26,6 +31,9 @@ st.markdown("""
     font-size: 20px;
     margin-bottom: 15px;
 }
+
+
+
 
 /* -------- INSTRUCTION CARD -------- */
 .instruction-card {
@@ -56,10 +64,13 @@ st.markdown("""
     margin-bottom: 8px;
 }
 
+
+
+
 /* -------- BUTTON -------- */
 .stButton button {
     background: linear-gradient(135deg, #0ea5a4, #38bdf8);
-    color: grey;
+    color: white;
     border-radius: 12px;
     padding: 12px 30px;
     font-size: 16px;
@@ -139,6 +150,7 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
+
 st.divider()
 
 # ---------------- USER INPUTS ----------------
@@ -175,18 +187,18 @@ st.markdown("""
 
 /* NumberInput, Selectbox, TextInput labels */
 label span {
-    font-size: 24px !important;          /* size */
+    font-size: 28px !important;          /* size */
     color: #ffffff !important;           /* color */
     font-family: 'Poppins', sans-serif !important;
-    font-weight: 700 !important;
+    font-weight: 800!important;
 }
 
 /* Extra safety for Streamlit widgets */
 div[data-testid="stWidgetLabel"] label span {
-    font-size: 24px !important;
+    font-size: 28px !important;
     color: #ffffff !important;
     font-family: 'Poppins', sans-serif !important;
-    font-weight: 700 !important;
+    font-weight: 800 !important;
 }
 
 /* Optional: spacing */
@@ -195,6 +207,9 @@ div[data-testid="stWidgetLabel"] {
 }
 </style>
 """, unsafe_allow_html=True)
+
+
+
 
 
 
@@ -270,9 +285,4 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-
-
-
-
-
 
