@@ -138,23 +138,30 @@ ag_ratio = st.number_input("A/G Ratio Albumin and Globulin Ratio", 0.1, 3.0, 1.0
 st.markdown('</div>', unsafe_allow_html=True)
 st.markdown("""
 <style>
-/* -------- NUMBER INPUT -------- */
-div[data-baseweb="input"] input {
-    font-size: 18px;       /* change text size */
-    color: #0f172a;        /* change text color (red here) */
-    font-family: 'Arial', serif; /* change font style */
-    font-weight: 600;      /* semi-bold */
+/* ===============================
+   FORCE STYLE ALL INPUT LABELS
+   =============================== */
+
+/* NumberInput, Selectbox, TextInput labels */
+label span {
+    font-size: 24px !important;          /* size */
+    color: #ffffff !important;           /* color */
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 700 !important;
 }
 
-/* -------- SELECTBOX -------- */
-div[data-baseweb="select"] div {
-    font-size: 18px;       /* change dropdown text size */
-    color: #0f172a;        /* change dropdown text color (blue here) */
-    font-family: 'Arial', serif;
-    font-weight: normal;
+/* Extra safety for Streamlit widgets */
+div[data-testid="stWidgetLabel"] label span {
+    font-size: 24px !important;
+    color: #ffffff !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 700 !important;
 }
-            
-            
+
+/* Optional: spacing */
+div[data-testid="stWidgetLabel"] {
+    margin-bottom: 6px;
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -232,6 +239,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
 
 
