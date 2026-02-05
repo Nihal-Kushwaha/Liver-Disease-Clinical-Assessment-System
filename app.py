@@ -37,7 +37,7 @@ st.markdown("""
 /* -------- BUTTON -------- */
 .stButton button {
     background: linear-gradient(135deg, #0ea5a4, #38bdf8);
-    color: white;
+    color: grey;
     border-radius: 12px;
     padding: 12px 30px;
     font-size: 16px;
@@ -232,4 +232,5 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
