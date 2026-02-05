@@ -141,7 +141,7 @@ st.markdown("""
 /* -------- NUMBER INPUT -------- */
 div[data-baseweb="input"] input {
     font-size: 18px;       /* change text size */
-    color: white;        /* change text color (red here) */
+    color: #0f172a;        /* change text color (red here) */
     font-family: 'Arial', serif; /* change font style */
     font-weight: 600;      /* semi-bold */
 }
@@ -149,7 +149,7 @@ div[data-baseweb="input"] input {
 /* -------- SELECTBOX -------- */
 div[data-baseweb="select"] div {
     font-size: 18px;       /* change dropdown text size */
-    color: white;        /* change dropdown text color (blue here) */
+    color: #0f172a;        /* change dropdown text color (blue here) */
     font-family: 'Arial', serif;
     font-weight: normal;
 }
@@ -232,6 +232,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
 
 
