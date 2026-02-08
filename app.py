@@ -275,6 +275,63 @@ if st.button("🔍 Predict"):
 
 
 st.divider()
+
+# ---------------- FEEDBACK SECTION ----------------
+st.markdown("""
+<div class="instruction-card">
+    <h3>💬 Feedback & Suggestions</h3>
+    <p style="font-size:18px;">
+        Share your experience or suggestions to help us improve this AI system.
+    </p>
+</div>
+""", unsafe_allow_html=True)
+
+name = st.text_input("Your Name")
+feedback = st.text_area("Your Feedback Message", height=120)
+
+if st.button("📨 Submit Feedback"):
+    if name and feedback:
+        import requests
+
+        google_script_url = "https://script.google.com/macros/s/AKfycbxf7yFiaALkQ7pi1yfbyd2xHWebbxDMDv2zOyU7JXTeWjKZqUxrRRlXHXBl6_ulVFN3/exec"
+
+        payload = {
+            "name": name,
+            "feedback": feedback
+        }
+
+        try:
+            response = requests.post(google_script_url, json=payload, timeout=10)
+
+            if response.status_code == 200:
+                st.markdown("""
+                <div class="success-box">
+                ✅ Thank you for your feedback! <br><br>
+                Your message has been submitted successfully.
+                </div>
+                """, unsafe_allow_html=True)
+            else:
+                st.markdown("""
+                <div class="error-box">
+                ❌ Failed to submit feedback. Please try again later.
+                </div>
+                """, unsafe_allow_html=True)
+
+        except Exception:
+            st.markdown("""
+            <div class="error-box">
+            ❌ Connection error. Please check your internet connection.
+            </div>
+            """, unsafe_allow_html=True)
+    else:
+        st.markdown("""
+        <div class="error-box">
+        ⚠️ Please enter your name and feedback message.
+        </div>
+        """, unsafe_allow_html=True)
+
+st.divider()
+
 st.markdown(
     """
     <p style="font-size:16px; color:white; font-family:'Ariel', serif; font-weight:normal; text-align:left; font-size: 20px;">
@@ -285,4 +342,3 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-
