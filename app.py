@@ -5,13 +5,13 @@ import pickle
 st.markdown("""
 <style>
 
-/* -------- BACKGROUND -------- */
+/* BACKGROUND */
 .stApp {
     background: linear-gradient(135deg, #3b82f6, #9333ea);
     font-family: 'Arial', sans-serif;
 }
 
-/* -------- TITLE -------- */
+/* TITLE */
 .title {
     text-align: center;              /* center / left / right */
     font-size: 48px;                 /* 🔼 increase / decrease size */
@@ -164,26 +164,31 @@ st.markdown("""
 st.markdown('</div>', unsafe_allow_html=True)
 
 
+col1, col2 = st.columns(2)
 
-age = st.number_input("Age of the patient", 1, 100, 30)
+with col1:
+    age = st.number_input("Age of the patient", 1, 100, 30)
 
-gender = st.selectbox("Gender of the patient", ["Male", "Female"])
-gender = 1 if gender == "Male" else 0
+    gender = st.selectbox("Gender of the patient", ["Male", "Female"])
+    gender = 1 if gender == "Male" else 0
 
-total_bilirubin = st.number_input("Total Bilirubin", 0.0, 100.0, 1.0)
-direct_bilirubin = st.number_input("Direct Bilirubin", 0.0, 50.0, 0.3)
-alkphos = st.number_input("Alkphos Alkaline Phosphotase", 50.0, 3000.0, 200.0)
-sgpt = st.number_input("Sgpt Alamine Aminotransferase", 5.0, 3000.0, 40.0)
-sgot = st.number_input("Sgot Aspartate Aminotransferase", 5.0, 5000.0, 45.0)
-total_protein = st.number_input("Total Proteins", 2.0, 10.0, 6.5)
-albumin = st.number_input("ALB Albumin", 0.5, 6.0, 3.1)
-ag_ratio = st.number_input("A/G Ratio Albumin and Globulin Ratio", 0.1, 3.0, 1.0)
+    total_bilirubin = st.number_input("Total Bilirubin", 0.0, 100.0, 1.0)
+    direct_bilirubin = st.number_input("Direct Bilirubin", 0.0, 50.0, 0.3)
+    alkphos = st.number_input("Alkphos Alkaline Phosphotase", 50.0, 3000.0, 200.0)
+
+with col2:
+    sgpt = st.number_input("Sgpt Alamine Aminotransferase", 5.0, 3000.0, 40.0)
+    sgot = st.number_input("Sgot Aspartate Aminotransferase", 5.0, 5000.0, 45.0)
+    total_protein = st.number_input("Total Proteins", 2.0, 10.0, 6.5)
+    albumin = st.number_input("ALB Albumin", 0.5, 6.0, 3.1)
+    ag_ratio = st.number_input("A/G Ratio Albumin and Globulin Ratio", 0.1, 3.0, 1.0)
+
 st.markdown('</div>', unsafe_allow_html=True)
 st.markdown("""
 <style>
-/* ===============================
+/*
    FORCE STYLE ALL INPUT LABELS
-   =============================== */
+   */
 
 /* NumberInput, Selectbox, TextInput labels */
 label span {
@@ -208,6 +213,47 @@ div[data-testid="stWidgetLabel"] {
 </style>
 """, unsafe_allow_html=True)
 
+st.markdown("""
+<style>
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 768px) {
+
+    /* Reduce label size for mobile */
+    label span {
+        font-size: 18px !important;
+        line-height: 1.3 !important;
+    }
+
+    /* Input fields spacing */
+    input, textarea, select {
+        font-size: 16px !important;
+    }
+
+    /* Make buttons full width on mobile */
+    .stButton button {
+        width: 100%;
+        padding: 14px 0;
+        font-size: 18px;
+    }
+
+    /* Reduce card padding for small screens */
+    .instruction-card {
+        padding: 16px 18px;
+        margin: 16px 10px;
+    }
+
+    /* Subtitle adjustment */
+    .subtitle {
+        font-size: 16px;
+    }
+
+    /* Title scaling */
+    .title {
+        font-size: 34px;
+    }
+}
+</style>
+""", unsafe_allow_html=True)
 
 
 
@@ -216,7 +262,7 @@ div[data-testid="stWidgetLabel"] {
 # ---------------- PREDICTION ----------------
 if st.button("🔍 Predict"):
 
-    # Raw user inputs (clean names)
+    # Raw user inputs 
     user_data = {
         "Age of the patient": age,
         "Gender of the patient": gender,
@@ -233,7 +279,7 @@ if st.button("🔍 Predict"):
     # Build input strictly using scaler feature names
     ordered_values = []
     for col in scaler.feature_names_in_:
-        clean_col = col.strip()  # remove leading/trailing spaces
+        clean_col = col.strip()  
         ordered_values.append(user_data[clean_col])
 
     input_df = pd.DataFrame(
